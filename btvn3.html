@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập frond end and servlet</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<style>
+    body{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: linear-gradient(to right, yellow, red);
+    }
+    h1{
+        font-size: 60px;
+    }
+</style>
+<body id="gradient">
+    <h1>B &ensp; A &ensp; C &ensp; K &ensp; G &ensp; R &ensp; O &ensp; N &ensp; D</br>G &ensp; E &ensp; N &ensp; E &ensp; R &ensp; A &ensp; T &ensp; O &ensp; R
+    </h1>
+    <input id="color1" type="color" name="color1" value="#feff00">
+    <input id="color2" type="color" name="color2" value="#ff0100">
+    <button id="randomC" type="button" onclick="randomC()">Random</button>
+    <h2>T H I S &ensp; I S &ensp; T H E &ensp; B A C K G R O U N D</h2>
+    <h4 id="setC">linear-gradient(to right, rgb(254, 255, 0), rgb(255, 0, 0));</h4>
+    <script>
+        //hàm random
+        function randomC() {
+            var body = document.getElementById("gradient");
+            const randomColor1 = Math.floor(Math.random() * 16777215).toString(16);
+            const randomColor2 = Math.floor(Math.random() * 16777215).toString(16);
+            document.getElementById("color1").value="#"+randomColor1;
+            document.getElementById("color2").value="#"+randomColor2;
+
+            body.style.background =
+                "linear-gradient(to right, " + "#" +
+                randomColor1 +
+                ", " + "#" +
+                randomColor2 +
+                ")";
+            document.getElementById("setC").innerHTML = body.style.background+";";
+        }
+
+        //hàm setMau linear gradient
+        var color1 = document.querySelector("#color1");
+        var color2 = document.querySelector("#color2");
+        var body = document.getElementById("gradient");
+
+        function setGradient() {
+            body.style.background =
+                "linear-gradient(to right, " +
+                color1.value +
+                ", " +
+                color2.value +
+                ")";
+            document.getElementById("setC").innerHTML = body.style.background+";";
+        }
+
+        color1.addEventListener("input", setGradient);
+        color2.addEventListener("input", setGradient);
+    </script>
+</body>
+
+</html>
